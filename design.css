@@ -1,0 +1,32 @@
+.hero-image{
+    background-image: url("https://hameeimage01.speedgabia.com/iface_shopify/detail/TemperedGlass/images_web/page_01.png");
+    background-position: center;
+    background-size: cover;
+    height: 60vh;
+}
+.tile img{
+    height: 65vh;
+    width:20vw;
+    border-radius: 12px;
+}
+.tile-text{
+    position: absolute;
+    
+}
+.tile{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    text-transform: uppercase;
+    height: 100%;
+}
+/* .card{
+    margin:12px;
+} */
+.img-fluid{
+    /* padding-top: 10px; */
+    height: 20rem;
+    
+}
+
