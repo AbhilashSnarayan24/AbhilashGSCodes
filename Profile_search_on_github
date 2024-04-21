@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container" >
+    <input type="text" placeholder="Enter user Id!">
+
+    </div>
+
+    <div class="container">
+        <div class="row" id="portfolio">
+            
+            
+                      
+                     </div>
+                  </div>
+                </div>
+              </div>
+        
+        </div>
+    </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script>
+        import teamsData from "./data.js";
+console.log(teamsData);
+ function getUserDetails(){
+    const rawData= await fetch("");
+    const apiData= await rawData.json();
+    console.log(apiData);
+    createUserCard(apiData)
+}
+function createUserCard(apiData){
+    const portfolioElement=document.getElementById("portfolio");
+    portfolioElement.innerHTML="";
+    apiData.forEach(function(post){
+        const liEl=generateCard(post.name,post.about,post.image,post.followers,post.following,post.repos,post.twitterhandle,post.location);
+        portfolioElement.innerHTML+=liEl;
+    })
+
+
+}
+
+function generateCard(name,about,image,followers,following,repos,twitterhandle,location){
+    return `<div class="card" style="width: 540px;height:h-100;"><div class="row g-0" style="background-color: gray;"><div class="col-md-4 border border-dark h-100">
+        <img src=${image} class="img-fluid rounded-start" ></div>
+      <div class="col-md-8"><div class="card-body"><h5 class="card-title">${name}</h5><p class="card-text">${about}</p>
+         
+        <div class="d-flex justify-content-between"><p>Followers: ${followers}</p><p>Following: ${following}</p><p>Repoes: ${repos}</p></div>
+
+        <div class="d-flex justify-content-between p-3 m-2"><p>Twitter: ${twitterhandle}</p><p>Location: ${location}</p></div>
+          
+         </div>
+      </div>
+    </div>
+  </div>`
+}
+      </script>
+</body>
+</html>
